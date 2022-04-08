@@ -19,5 +19,8 @@ modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 function launchModal() {
   modalbg.style.display = "block";
 }
-
+// close modal event
+closeBtn.onclick = function() { //cliquer sur la croix
+  modalbg.style.display = "none";//au clic, le formulaire disparait grâce au display:none
+}
 
