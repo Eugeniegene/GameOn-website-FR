@@ -12,6 +12,7 @@
     />
   </head>
   <body>
+    <!-- Top + navbar-->
     <div class="topnav" id="myTopnav">
       <div class="header-logo">
         <img alt="logo" src="Logo.png" width="auto" height="auto" />
@@ -27,6 +28,8 @@
         </a>
       </div>
     </div>
+    <!-- end of top + navbar-->
+    <!-- center bloc-->
     <main>
       <div class="hero-section">
         <div class="hero-content">
@@ -49,35 +52,34 @@
           je m'inscris
         </button>
       </div>
-
       <!--Modal form starts here-->
       <div class="bground">
         <div class="content">
           <span class="close"></span>
           <div class="modal-body">
-            <form name="reserve" action="index.html" method="get" onsubmit="return validate();">
-              <div class="formData" data-error="Veuillez entrer 2 caractères minimum" data-error-visible="false">
+            <form id="form" name="reserve" action="index.html" method="get" onsubmit="return validate();">
+              <div class="formData" data-error="" data-error-visible="false">
                 <label for="first">Prénom</label><br>
                 <input class="text-control" type="text" id="first" name="first" minlength="2"/><br>
               </div>
-              <div class="formData" data-error="Veuillez entrer 2 caractères minimum" data-error-visible="false">
+              <div class="formData" data-error="" data-error-visible="false">
                 <label for="last">Nom</label><br>
                 <input class="text-control" type="text" id="last" name="last"/><br>
               </div>
-              <div class="formData" data-error="Veuillez entrer une adresse email valide." data-error-visible="false">
+              <div class="formData" data-error="" data-error-visible="false">
                 <label for="email">E-mail</label><br>
                 <input class="text-control" type="email" id="email" name="email"/><br>
               </div>
-              <div class="formData" data-error="Veuillez saisir votre date de naissance." data-error-visible="false">
+              <div class="formData" data-error="" data-error-visible="false">
                 <label for ="birthdate">Date de naissance</label><br>
                 <input class="text-control" type="date" id="birthdate" name="birthdate"/><br>
               </div>
-              <div class="formData" data-error="Veuillez indiquer une valeur entre 0 et 99." data-error-visible="false">
+              <div class="formData" data-error="" data-error-visible="false">
                 <label for="amount">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
                 <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99">
               </div>
               <p class="text-label">A quel tournoi souhaitez-vous participer cette année ?</p>
-              <div class="formData" id="allCities" data-error="Merci de selectionner une ville">
+              <div class="formData" id="allCities" data-error="">
                 <input class="checkbox-input" type="radio" id="location1" name="location" value="New York"/>
                 <label class="checkbox-label" for="location1">
                   <span class="checkbox-icon"></span>
@@ -122,20 +124,21 @@
               <input class="btn-submit" type="submit" class="button" value="C'est parti"/>
             </form>
           </div>
-        </div>
-      </div>
-      <!-- Modal ends here-->
-      <!-- Confirmation bloc if the form was correctly filled-->
-      <div class="confirmation-bloc">
-        <div class="submitted-form">
-          <span class="close-modal-submit"></span>
-          <div class="confirm-message"> Nous vous remercions pour votre résertation !</div>
-          <button id="close-btn-confirmation"> Quitter ?
-          </button>
+          <!-- Confirmation bloc if the form was correctly filled-->
+          <div class="confirmation-bloc">
+            <div class="submitted-form">
+              <span class="close-modal-submit"></span>
+                <div class="confirm-message"> Nous vous remercions pour votre résertation !</div>
+                <button id="close-btn">Fermer</button>
+            </div>
+          </div>
         </div>
       </div>
     </main>
     <!-- Confirmation bloc ends here-->
+        </div>
+      </div>
+      <!-- Modal ends here-->
     <!--footer area-->
     <footer>
       <p class="copyrights">
