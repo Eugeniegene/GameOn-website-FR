@@ -27,14 +27,14 @@ const checkbox1 = document.getElementById('checkbox1');//validation conditions d
 const input = document.getElementsByClassName('text-control');//validation optionelle newsletter
 
 //erreurs en cas de non-remplissage du formulaire
-const formDataFirst = document.querySelector("#first").parentNode;//renvoi vers l'id du prénom
-const formDataLast = document.querySelector("#last").parentNode;// renvoi vers l'id du nom
-const formDataEmail = document.querySelector("#email").parentNode; //renvoi vers l'email 
-const formDataBirthdate = document.querySelector("#birthdate").parentNode;// renvoi vers la date de naissance 
-const formDataAmount = document.querySelector("#amount").parentNode;//renvoi vers la quantité (nombre de tournois)
-const formDataLocation = document.querySelector("#location1").parentNode;//renvoi vers les villes à sélectionner 
-const formDataGenConditions = document.querySelector("#checkbox1").parentNode; //renvoi vers la case obligatoire à cocher 
-const numbers= /[0-9]/; // chiffres allant de 0 à 9
+const formDataFirst = document.querySelector("#first").parentNode;//renvoi vers le parent de l'id du prénom
+const formDataLast = document.querySelector("#last").parentNode;// renvoi vers le parent de l'id du nom
+const formDataEmail = document.querySelector("#email").parentNode; //renvoi vers le parent de l'email 
+const formDataBirthdate = document.querySelector("#birthdate").parentNode;// renvoi vers le parent de la date de naissance 
+const formDataAmount = document.querySelector("#amount").parentNode;//renvoi vers le parent de la quantité (nombre de tournois)
+const formDataLocation = document.querySelector("#location1").parentNode;//renvoi vers le parent des villes à sélectionner 
+const formDataGenConditions = document.querySelector("#checkbox1").parentNode; //renvoi vers le parent de la case obligatoire à cocher 
+//const numbers= /[0-9]/; // chiffres allant de 0 à 9
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));//bouton s'inscrire fonctionnel 
