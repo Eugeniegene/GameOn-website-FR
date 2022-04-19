@@ -22,9 +22,12 @@ const email = document.getElementById('email');//email
 const amount = document.getElementById('amount');//quantité 
 const birthdate = document.getElementById('birthdate');//dâte de naissance
 const allCities = document.getElementById('allCities');//toutes les villes selectionables 
-const locations = document.querySelectorAll('#allCities .checkbox-input');//selecteur de villes à cocher
+const locations = document.querySelectorAll('#allCities .checkbox-input');//selecteur de villes à cocher + case à cocher
 const checkbox1 = document.getElementById('checkbox1');//validation conditions d'utilisation
 const input = document.getElementsByClassName('text-control');//validation optionelle newsletter
+const confirmationBloc = document.getElementsByClassName('confirmation-bloc');// bloc contenant le message de confirmation
+const confirmationMsg = document.getElementsByClassName('confirm-message');// message de confirmation
+const closeBtnBottom = document.getElementById('close-btn');// bouton de fermeture de formulaire
 
 //erreurs en cas de non-remplissage du formulaire
 const formDataFirstName = document.querySelector("#first").parentNode;//renvoi vers le parent de l'id du prénom
@@ -34,7 +37,6 @@ const formDataBirthdate = document.querySelector("#birthdate").parentNode;// ren
 const formDataAmount = document.querySelector("#amount").parentNode;//renvoi vers le parent de la quantité (nombre de tournois)
 const formDataLocation = document.querySelector("#location1").parentNode;//renvoi vers le parent des villes à sélectionner 
 const formDataGenConditions = document.querySelector("#checkbox1").parentNode; //renvoi vers le parent de la case obligatoire à cocher 
-//const numbers= /[0-9]/; // chiffres allant de 0 à 9
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));//bouton s'inscrire fonctionnel 
@@ -293,7 +295,7 @@ function validateConditions(checkbox1) {
 }
 
 //validation des champs présents dans le formulaire
-function validate() { //initialisation de la fonction 
+function validate() {
     let isFormValid = [];
     console.log('Enter fonction validate');//vérification de la fonction valider 
     isFormValid.push(validateFirstName(firstName)); //si le champ prénom est valide
@@ -306,6 +308,12 @@ function validate() { //initialisation de la fonction
     
     if (!isFormValid.includes(false)) { //si le formulaire a été entièrement validé
         form.style.display = "none"; //le formulaire disparait
-        confirmationMsg.style.display = "flex"; //un message de confirmation apparait après coup
+        closeBtn.style.display = "none"; //le bouton croix disparait
+        confirmationMsg[0].style.display = "block"; //un message de confirmation apparait après coup
+        closeBtnBottom.style.display = "inline-block";//le bouton "fermer" apparait
     } 
+
+    closeBtnBottom.onclick = function() { //cliquer sur la croix
+    modalbg.style.display = "none"; //au clic, le formulaire disparait grâce au display:none
+  }
 } 
