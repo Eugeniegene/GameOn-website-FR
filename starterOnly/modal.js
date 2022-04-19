@@ -291,3 +291,21 @@ function validateConditions(checkbox1) {
         return true;//la fonction est validée
     }
 }
+
+//validation des champs présents dans le formulaire
+function validate() { //initialisation de la fonction 
+    let isFormValid = [];
+    console.log('Enter fonction validate');//vérification de la fonction valider 
+    isFormValid.push(validateFirstName(firstName)); //si le champ prénom est valide
+    isFormValid.push(validateLastName(lastName)); //si le champ nom est valide 
+    isFormValid.push(validateEmail(email)); //si le champ email est valide
+    isFormValid.push(validateBirthdate(birthdate)); //si la date de naissance est valide
+    isFormValid.push(validateParsedAmount(amount)); //si la quantité de tournois est valide
+    isFormValid.push(validateOptions(locations)); //si une case pour la selection de villes a été cochée
+    isFormValid.push(validateConditions(checkbox1)); //si la case des conditions générales a été cochée
+    
+    if (!isFormValid.includes(false)) { //si le formulaire a été entièrement validé
+        form.style.display = "none"; //le formulaire disparait
+        confirmationMsg.style.display = "flex"; //un message de confirmation apparait après coup
+    } 
+} 
