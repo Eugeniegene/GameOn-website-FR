@@ -222,3 +222,35 @@ function validateBirthdate(birthdate) {
     )
     $ indique la fin de la regex 
 */
+function validateParsedAmount(amount) {
+    const parsed = parseInt(amount.value); //parseINT force un type de variable. Le parseInt force une chaine de caractères à devenir des nombres. 
+    if (isNaN(parsed)) { //si la valeur n'est pas un chiffre
+        formDataAmount.setAttribute( //erreur
+            "data-error", //renvoi vers le HTML
+            "Champ incorrect." //champ personnalisé uniquement visible en cas de lettre ajoutée.
+        );
+        formDataAmount.setAttribute("data-error-visible", "true");//si le champ rempli n'est pas correct
+        return false;//la fonction empêchera l'envoi du formulaire car elle sera bloquée par le DOM.
+    }
+    else if (amount.value == "") {
+        formDataAmount.setAttribute( //erreur
+            "data-error", //renvoi vers le HTML
+            "Champ incomplet." //champ personnalisé uniquement visible en cas de case vide
+        );
+        formDataAmount.setAttribute("data-error-visible", "true");//si le champ rempli n'est pas correct
+        return false;//la fonction empêchera l'envoi du formulaire car elle sera bloquée par le DOM.
+    } 
+    else if (amount.value > 99) {//si la valeur indiquée excède 99
+        formDataAmount.setAttribute(//erreur
+            "data-error",//renvoi vers le HTML
+            "Veuillez indiquer une valeur inférieure ou égale à 99."//message d'erreur envoyé 
+        );
+        formDataAmount.setAttribute("data-error-visible", "true");//si le champ rempli n'est pas correct
+        return false;//la fonction empêchera l'envoi du formulaire car elle sera bloquée par le DOM.
+    }  
+    else {
+        formDataAmount.removeAttribute("data-error"); //si tout est correct, aucun message d'erreur ne s'affichera
+        formDataAmount.removeAttribute("data-error-visible"); //l'attribut data error n'affichera rien
+        return true;//la fonction est validée
+    }
+}
