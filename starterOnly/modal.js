@@ -254,3 +254,40 @@ function validateParsedAmount(amount) {
         return true;//la fonction est validée
     }
 }
+function validateOptions(locations) {
+    let locChecked = 0;//initialement, aucune des villes n'est cochée
+    locations.forEach((i) => {
+        if (i.checked) {//au clic, l'utilisateur pourra cocher une des locations, seulement une seule.
+            locChecked++;
+        }
+    });
+    if (locChecked === 0) { //si l'utilisateur n'a pas coché de ville
+        formDataLocation.setAttribute( //un revoi vers data error sera effectué 
+            "data-error",
+            "Veuillez selectionner une ville." //message incitant à l'utilisateur de sélectionner une ville 
+        );
+        formDataLocation.setAttribute("data-error-visible", "true");//si le champ selectionné n'est pas correct
+        return false;//la fonction empêchera l'envoi du formulaire car elle sera bloquée par le DOM.
+    } 
+    else {
+        formDataLocation.removeAttribute("data-error");//si une case est cochée aucun message d'erreur ne s'affichera
+        formDataLocation.removeAttribute("data-error-visible");//l'attribut data error n'affichera rien
+        return true;//la fonction est validée 
+    }
+}
+
+function validateConditions(checkbox1) { 
+    if (!checkbox1.checked) {//le fait de cocher la csase de conditions générales est obligatoire 
+        formDataGenConditions.setAttribute(//si elle n'est pas cochée
+            "data-error", //renvoi vers le HTML
+            "Vous devez accepter les conditions d'utilisation."// message incitant l'utilisateur à cocher la case
+        );
+        formDataGenConditions.setAttribute("data-error-visible", "true");//si le champ selectionné n'est pas correct
+        return false;//la fonction empêchera l'envoi du formulaire car elle sera bloquée par le DOM.
+    } 
+    else {
+        formDataGenConditions.removeAttribute("data-error");//si une case est cochée, aucun message d'erreur ne s'affichera
+        formDataGenConditions.removeAttribute("data-error-visible");//l'attribut data error n'affichera rien
+        return true;//la fonction est validée
+    }
+}
