@@ -229,8 +229,11 @@ main
 
 .confirm-message
 {
-  color: #279e7a;
+  color: #57b397;
   display:none;
+  font-size: 20px;
+  margin-bottom: 50px;
+  margin-top: 30px;
 }
 
 .content 
@@ -666,4 +669,25 @@ footer
   to {
     opacity: 1;
   }
+}
+
+/* Message area visible*/
+
+.submitted-form
+{
+  text-align: center;
+}
+/* close button after modal is submitted)*/
+#close-btn
+{
+  background: #fe142f;
+  margin-top: 0.5em;
+  margin-bottom: 30px;
+  padding: 1em;
+  color: #fff;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 16px;
+  display: none;
 }
