@@ -129,9 +129,9 @@ function validateEmail(email) {
         [Set de caractères
             - \w indique l'utilisation de n'importe quel mot (alphanumérique et underscore)
             - \d indique l'utilisation de caractères numériques allant de 0 à 9
-            - . indique que des points peuvent être utilisés
-            - _ indique que des underscores peuvent être utilisés 
-            - \- indique que des "-" peuvent être utilisés 
+            - . indique qu'un point peut être utilisé
+            - _ indique qu'un un underscore peut être utilisé 
+            - \- indique qu'un "-" peut être utilisé 
             - # indique que mot-dièse peut être utilisé 
         ]
     )
@@ -141,9 +141,9 @@ function validateEmail(email) {
         [Set de caractères
             - \w indique l'utilisation de n'importe quel mot (alphanumérique et underscore)
             - \d indique l'utilisation de caractères numériques allant de 0 à 9
-            - . indique que des points peuvent être utilisés
-            - _ indique que des underscores peuvent être utilisés 
-            - \- indique que des "-" peuvent être utilisés 
+            - . indique qu'un point peut être utilisé
+            - _ indique qu'un un underscore peut être utilisé 
+            - \- indique qu'un "-" peut être utilisé 
             - # indique que mot-dièse peut être utilisé 
         ]
         + indique que l'on peut rajouter un ou plusieurs token
@@ -153,9 +153,9 @@ function validateEmail(email) {
         [Set de caractères
             - \w indique l'utilisation de n'importe quel mot (alphanumérique et underscore)
             - \d indique l'utilisation de caractères numériques allant de 0 à 9
-            - . indique que des points peuvent être utilisés
-            - _ indique que des underscores peuvent être utilisés 
-            - \- indique que des "-" peuvent être utilisés 
+            - . indique qu'un point peut être utilisé
+            - _ indique qu'un un underscore peut être utilisé 
+            - \- indique qu'un "-" peut être utilisé 
             - # indique que mot-dièse peut être utilisé 
         ]
         + indique que l'on peut rajouter un ou plusieurs token
