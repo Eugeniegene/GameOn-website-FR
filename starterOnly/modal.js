@@ -168,8 +168,6 @@ function validateEmail(email) {
 
 function validateBirthdate(birthdate) {
     const todayDate = new Date(); //initialisation de la variable au format date
-    todayDate.setFullYear(todayDate.getFullYear() - 18);// l'utilisateur doit être âgé de minimum 18 ans pour s'inscrire au tournois
-
     const birthDateEntry = new Date(birthdate.value);// initialisation de la date de naissance. Elle sera ensuite vérifiée par rapport à l'age minimum requis à l'inscription. 
 
     if (birthdate.value == "") {//si le champ n'est pas rempli 
@@ -180,61 +178,15 @@ function validateBirthdate(birthdate) {
         formDataBirthdate.setAttribute("data-error-visible", "true");//si le champ rempli n'est pas correct
         return false;//la fonction empêchera l'envoi du formulaire car elle sera bloquée par le DOM.
     }
-    else if ( //ou alors
-        todayDate < birthDateEntry || //comparaison - si la date de naissance est supérieure à la date actuelle 
-        !birthdate.value.match( //ou si la valeur n'est pas un format de date valide
-            /^\d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12]\d|3[01])$/ //regex expliquée plus bas 
-        )
-    ) {
-        formDataBirthdate.setAttribute(//un message d'erreur sera transmi via data-error
-            "data-error",//renvoi vers le HTML
-            "L'inscription n'est pas accessible aux moins de 18 ans."//champ personnalisé si l'utilisateur n'a pas 18 ans minimum
-        );
-        formDataBirthdate.setAttribute("data-error-visible", "true");//si le champ rempli n'est pas correct
-        return false;//la fonction empêchera l'envoi du formulaire car elle sera bloquée par le DOM.
-    } 
     else {//sinon
         formDataBirthdate.removeAttribute("data-error");//si tout est correct, aucun message d'erreur ne s'affichera
         formDataBirthdate.removeAttribute("data-error-visible");//l'attribut data error n'affichera rien
         return true;//la fonction est validée
     }
 }
-/* La regex relative à la date de naissance 
-    Tout ce qui se situe entre les "/" est dans la regex. 
-    - ^ indique le début de la regex
-    - \d indique l'utilisation de caractères numériques allant de 0 à 9
-    - {4} indique que le caractère précédent doit se répéter 4 fois 
-    - \- indique qu'un "-" peut être utilisé 
-    (Premier groupe
-    - "?" Condition "si"  
-    - Si la date commence par 0
-        o Le chiffre qui suivra ira de 1 à 9
-    - Sinon (la date commence par 1)
-        o Le chiffre qui suivra sera soit 0, 1 ou 2.
-    )
-    - \- indique qu'un "-" peut être utilisé 
-    (Deuxième groupe
-    - "?" Condition "si" 
-    - La date commence par 0
-        o Le chiffre qui suivra ira de 1 à 9.
-    - Sinon, le début de la date commencera par 1 ou 2 
-        o \d Il sera suivi d'un chiffre qui ira de 0 à 9 
-    - Sinon, le début de la date commencera par 3 
-        o La date sera suivie par 0 ou 1.
-    )
-    $ indique la fin de la regex 
-*/
 function validateParsedAmount(amount) {
     const parsed = parseInt(amount.value); //parseINT force un type de variable. Le parseInt force une chaine de caractères à devenir des nombres. 
-    if (isNaN(parsed)) { //si la valeur n'est pas un chiffre
-        formDataAmount.setAttribute( //erreur
-            "data-error", //renvoi vers le HTML
-            "Champ incorrect." //champ personnalisé uniquement visible en cas de lettre ajoutée.
-        );
-        formDataAmount.setAttribute("data-error-visible", "true");//si le champ rempli n'est pas correct
-        return false;//la fonction empêchera l'envoi du formulaire car elle sera bloquée par le DOM.
-    }
-    else if (amount.value == "") {
+    if (amount.value == "") {//si le champ est vide
         formDataAmount.setAttribute( //erreur
             "data-error", //renvoi vers le HTML
             "Champ incomplet." //champ personnalisé uniquement visible en cas de case vide
@@ -256,6 +208,7 @@ function validateParsedAmount(amount) {
         return true;//la fonction est validée
     }
 }
+
 function validateOptions(locations) {
     let locChecked = 0;//initialement, aucune des villes n'est cochée
     locations.forEach((i) => {
@@ -294,7 +247,7 @@ function validateConditions(checkbox1) {
     }
 }
 
-//validation des champs présents dans le formulaire
+//validation des champs
 function validate() {
     let isFormValid = [];
     console.log('Enter fonction validate');//vérification de la fonction valider 
@@ -308,12 +261,11 @@ function validate() {
     
     if (!isFormValid.includes(false)) { //si le formulaire a été entièrement validé
         form.style.display = "none"; //le formulaire disparait
-        closeBtn.style.display = "none"; //le bouton croix disparait
         confirmationMsg[0].style.display = "block"; //un message de confirmation apparait après coup
         closeBtnBottom.style.display = "inline-block";//le bouton "fermer" apparait
     } 
 
-    closeBtnBottom.onclick = function() { //cliquer sur la croix
+    closeBtnBottom.onclick = function() { //cliquer sur le bouton
     modalbg.style.display = "none"; //au clic, le formulaire disparait grâce au display:none
   }
-} 
+}
