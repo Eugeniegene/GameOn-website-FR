@@ -231,9 +231,10 @@ main
 {
   color: #ffffff;
   display:none;
-  font-size: 20px;
-  margin-bottom: 50px;
+  font-size: 30px;
+  margin-bottom: 300px;
   margin-top: 30px;
+  font-weight: 100;
 }
 
 .content 
@@ -676,6 +677,7 @@ footer
 .submitted-form
 {
   text-align: center;
+  margin-top: 210px;
 }
 /* close button after modal is submitted)*/
 #close-btn
@@ -690,4 +692,5 @@ footer
   cursor: pointer;
   font-size: 16px;
   display: none;
+  width: 200px;
 }
