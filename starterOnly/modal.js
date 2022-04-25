@@ -53,73 +53,69 @@ closeBtn.onclick = function() { //cliquer sur la croix
 
 //données du formulaire
 function validateFirstName(firstName) {
-    console.log('Enter Validate First Name');
-  if (firstName.value == "" || firstName.value == null ) {
-      formDataFirstName.setAttribute(
-          "data-error",
-          "Veuillez saisir votre prénom."
+    console.log('Enter Validate First Name');//test de la fonction
+  if (firstName.value == "" || firstName.value == null ) {//si le champ n'est pas rempli
+      formDataFirstName.setAttribute(//un message d'erreur sera transmi via data-error
+          "data-error",//renvoi vers le HTML
+          "Veuillez saisir votre prénom."//champ personnalisé uniquement visible en cas de case vide
       );
-      formDataFirstName.setAttribute("data-error-visible", "true");
-      return false;
-  } else if (firstName.value.length < 2) {
-    console.log('Value length < 2');
-        formDataFirstName.setAttribute(
-            "data-error",
-            "Veuillez entrer 2 caractères minimum."
+     formDataFirstName.setAttribute("data-error-visible", "true");//si le champ rempli n'est pas correct
+      return false;//la fonction empêchera l'envoi du formulaire car elle sera bloquée par le DOM.
+
+  } else if (firstName.value.length < 2) {// OU ALORS - indique que le nom doit comporter au minimum deux caractères 
+    console.log('Value length < 2');//test de la fonction 
+        formDataFirstName.setAttribute(//si cela ne correspond pas, un message d'erreur sera transmi via data-error
+            "data-error", //renvoi vers le HTML 
+            "Veuillez entrer 2 caractères minimum" //message indiquant que deux caractères sont nécessaires
         );
-        formDataFirstName.setAttribute("data-error-visible", "true");
-        return false;
-  }
-  else {
-      formDataFirstName.removeAttribute("data-error");
-      formDataFirstName.removeAttribute("data-error-visible");
-      return true;
+      formDataFirstName.setAttribute("data-error-visible", "true");//si le champ rempli n'est pas correct
+      return false;//la fonction empêchera l'envoi du formulaire car elle sera bloquée par le DOM.
+  } else {
+      formDataFirstName.removeAttribute("data-error");//si tout est correct, aucun message d'erreur ne s'affichera
+      formDataFirstName.removeAttribute("data-error-visible");//l'attribut data error n'affichera rien
+      return true;//la fonction est validée 
   }
 }
 function validateLastName(lastName) {
-  if (lastName.value == "") {
-      formDataLastName.setAttribute(
-          "data-error",
-          "Veuillez saisir votre nom."
+  if (lastName.value == "") {//si le champ n'est pas rempli
+      formDataLastName.setAttribute(//un message d'erreur sera transmi via data-error
+          "data-error",//renvoi vers le HTML
+          "Veuillez saisir votre nom."//champ personnalisé uniquement visible en cas de case vide
       );
-      formDataLastName.setAttribute("data-error-visible", "true");
-      return false;
-  }
-  else if (lastName.value.length < 2) {
-        formDataLastName.setAttribute(
-            "data-error",
-            "Veuillez entrer 2 caractères minimum."
+      formDataLastName.setAttribute("data-error-visible", "true");//si le champ rempli n'est pas correct
+      return false;//la fonction empêchera l'envoi du formulaire car elle sera bloquée par le DOM.
+  } else if (lastName.value.length < 2) { //OU ALORS si le nom comporte moins de deux caractères
+        formDataLastName.setAttribute(//un message d'erreur sera transmi via data-error
+            "data-error",//renvoi vers le HTML
+            "Veuillez entrer 2 caractères minimum."//message indiquant que deux caractères sont nécessaires
         );
-        formDataLastName.setAttribute("data-error-visible", "true");
-        return false;
-  } 
-  else {
-      formDataLastName.removeAttribute("data-error");
-      formDataLastName.removeAttribute("data-error-visible");
-      return true;
+        formDataLastName.setAttribute("data-error-visible", "true");//si le champ rempli n'est pas correct
+        return false;//la fonction empêchera l'envoi du formulaire car elle sera bloquée par le DOM.
+  } else {
+      formDataLastName.removeAttribute("data-error");//si tout est correct, aucun message d'erreur ne s'affichera
+      formDataLastName.removeAttribute("data-error-visible");//l'attribut data error n'affichera rien
+      return true;//la fonction est validée 
   }
 }
 function validateEmail(email) {
-    if (email.value == "") {
-        formDataEmail.setAttribute(
-            "data-error",
-            "Veuillez saisir votre adresse email."
+    if (email.value == "") {//si le champ n'est pas rempli
+        formDataEmail.setAttribute(//un message d'erreur sera transmi via data-error
+            "data-error",//renvoi vers le HTML
+            "Veuillez saisir votre adresse email."//champ personnalisé uniquement visible en cas de case vide
         );
-        formDataEmail.setAttribute("data-error-visible", "true");
-        return false;
-    }  
-    else if (!/^([\w\d._\-#])+@([\w\d._\-#]+[.][\w\d._\-#]+)+$/.test(email.value)) { 
-        formDataEmail.setAttribute(
-            "data-error",
-            "Veuillez entrer une adresse email valide."
+        formDataEmail.setAttribute("data-error-visible", "true");//si le champ rempli n'est pas correct
+        return false;//la fonction empêchera l'envoi du formulaire car elle sera bloquée par le DOM.
+    } else if (!/^([\w\d._\-#])+@([\w\d._\-#]+[.][\w\d._\-#]+)+$/.test(email.value)) { //regex expliquée plus bas
+        formDataEmail.setAttribute(//un message d'erreur sera transmi via data-error
+            "data-error",//renvoi vers le HTML
+            "Veuillez entrer une adresse email valide."//message indiquant que le format n'est pas correct
         );
-        formDataEmail.setAttribute("data-error-visible", "true");
-        return false;
-    } 
-    else {
-        formDataEmail.removeAttribute("data-error");
-        formDataEmail.removeAttribute("data-error-visible");
-        return true;
+        formDataEmail.setAttribute("data-error-visible", "true");//si le champ rempli n'est pas correct
+        return false;//la fonction empêchera l'envoi du formulaire car elle sera bloquée par le DOM.
+    } else {
+        formDataEmail.removeAttribute("data-error");//si tout est correct, aucun message d'erreur ne s'affichera
+        formDataEmail.removeAttribute("data-error-visible");//l'attribut data error n'affichera rien
+        return true;//la fonction est validée 
     }
 }
 /* La regex est relative à l'email. 
@@ -129,9 +125,9 @@ function validateEmail(email) {
         [Set de caractères
             - \w indique l'utilisation de n'importe quel mot (alphanumérique et underscore)
             - \d indique l'utilisation de caractères numériques allant de 0 à 9
-            - . indique que des points peuvent être utilisés
-            - _ indique que des underscores peuvent être utilisés 
-            - \- indique que des "-" peuvent être utilisés 
+            - . indique qu'un point peut être utilisé
+            - _ indique qu'un un underscore peut être utilisé 
+            - \- indique qu'un "-" peut être utilisé 
             - # indique que mot-dièse peut être utilisé 
         ]
     )
@@ -141,9 +137,9 @@ function validateEmail(email) {
         [Set de caractères
             - \w indique l'utilisation de n'importe quel mot (alphanumérique et underscore)
             - \d indique l'utilisation de caractères numériques allant de 0 à 9
-            - . indique que des points peuvent être utilisés
-            - _ indique que des underscores peuvent être utilisés 
-            - \- indique que des "-" peuvent être utilisés 
+            - . indique qu'un point peut être utilisé
+            - _ indique qu'un un underscore peut être utilisé 
+            - \- indique qu'un "-" peut être utilisé 
             - # indique que mot-dièse peut être utilisé 
         ]
         + indique que l'on peut rajouter un ou plusieurs token
@@ -153,9 +149,9 @@ function validateEmail(email) {
         [Set de caractères
             - \w indique l'utilisation de n'importe quel mot (alphanumérique et underscore)
             - \d indique l'utilisation de caractères numériques allant de 0 à 9
-            - . indique que des points peuvent être utilisés
-            - _ indique que des underscores peuvent être utilisés 
-            - \- indique que des "-" peuvent être utilisés 
+            - . indique qu'un point peut être utilisé
+            - _ indique qu'un un underscore peut être utilisé 
+            - \- indique qu'un "-" peut être utilisé 
             - # indique que mot-dièse peut être utilisé 
         ]
         + indique que l'on peut rajouter un ou plusieurs token
@@ -174,8 +170,7 @@ function validateBirthdate(birthdate) {
         );
         formDataBirthdate.setAttribute("data-error-visible", "true");//si le champ rempli n'est pas correct
         return false;//la fonction empêchera l'envoi du formulaire car elle sera bloquée par le DOM.
-    }
-    else {//sinon
+    } else {//sinon
         formDataBirthdate.removeAttribute("data-error");//si tout est correct, aucun message d'erreur ne s'affichera
         formDataBirthdate.removeAttribute("data-error-visible");//l'attribut data error n'affichera rien
         return true;//la fonction est validée
@@ -191,16 +186,14 @@ function validateParsedAmount(amount) {
         );
         formDataAmount.setAttribute("data-error-visible", "true");//si le champ rempli n'est pas correct
         return false;//la fonction empêchera l'envoi du formulaire car elle sera bloquée par le DOM.
-    } 
-    else if (amount.value > 99) {//si la valeur indiquée excède 99
+    } else if (amount.value > 99) {//si la valeur indiquée excède 99
         formDataAmount.setAttribute(//erreur
             "data-error",//renvoi vers le HTML
             "Veuillez indiquer une valeur inférieure ou égale à 99."//message d'erreur envoyé 
         );
         formDataAmount.setAttribute("data-error-visible", "true");//si le champ rempli n'est pas correct
         return false;//la fonction empêchera l'envoi du formulaire car elle sera bloquée par le DOM.
-    }  
-    else {
+    } else {
         formDataAmount.removeAttribute("data-error"); //si tout est correct, aucun message d'erreur ne s'affichera
         formDataAmount.removeAttribute("data-error-visible"); //l'attribut data error n'affichera rien
         return true;//la fonction est validée
@@ -221,8 +214,7 @@ function validateOptions(locations) {
         );
         formDataLocation.setAttribute("data-error-visible", "true");//si le champ selectionné n'est pas correct
         return false;//la fonction empêchera l'envoi du formulaire car elle sera bloquée par le DOM.
-    } 
-    else {
+    } else {
         formDataLocation.removeAttribute("data-error");//si une case est cochée aucun message d'erreur ne s'affichera
         formDataLocation.removeAttribute("data-error-visible");//l'attribut data error n'affichera rien
         return true;//la fonction est validée 
@@ -237,8 +229,7 @@ function validateConditions(checkbox1) {
         );
         formDataGenConditions.setAttribute("data-error-visible", "true");//si le champ selectionné n'est pas correct
         return false;//la fonction empêchera l'envoi du formulaire car elle sera bloquée par le DOM.
-    } 
-    else {
+    } else {
         formDataGenConditions.removeAttribute("data-error");//si une case est cochée, aucun message d'erreur ne s'affichera
         formDataGenConditions.removeAttribute("data-error-visible");//l'attribut data error n'affichera rien
         return true;//la fonction est validée
