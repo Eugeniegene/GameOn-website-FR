@@ -51,6 +51,13 @@ closeBtn.onclick = function() { //cliquer sur la croix
   modalbg.style.display = "none"; //au clic, le formulaire disparait grâce au display:none
 }
 
+//envoyer un formulaire 
+form.addEventListener("submit", function (e) {
+  e.preventDefault();//formule permettant d'éviter d'envoyer un formulaire vide 
+  console.log('EventListener');
+  validate();//fonction valider 
+});
+
 //données du formulaire
 function validateFirstName(firstName) {
     console.log('Enter Validate First Name');//test de la fonction
