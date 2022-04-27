@@ -54,13 +54,11 @@ closeBtn.onclick = function() { //cliquer sur la croix
 //envoyer un formulaire 
 form.addEventListener("submit", function (e) {
   e.preventDefault();//formule permettant d'éviter d'envoyer un formulaire vide 
-  console.log('EventListener');
   validate();//fonction valider 
 });
 
 //données du formulaire
 function validateFirstName(firstName) {
-    console.log('Enter Validate First Name');//test de la fonction
   if (firstName.value == "" || firstName.value == null ) {//si le champ n'est pas rempli
       formDataFirstName.setAttribute(//un message d'erreur sera transmi via data-error
           "data-error",//renvoi vers le HTML
@@ -70,7 +68,6 @@ function validateFirstName(firstName) {
       return false;//la fonction empêchera l'envoi du formulaire car elle sera bloquée par le DOM.
 
   } else if (firstName.value.length < 2) {// OU ALORS - indique que le nom doit comporter au minimum deux caractères 
-    console.log('Value length < 2');//test de la fonction 
         formDataFirstName.setAttribute(//si cela ne correspond pas, un message d'erreur sera transmi via data-error
             "data-error", //renvoi vers le HTML 
             "Veuillez entrer 2 caractères minimum" //message indiquant que deux caractères sont nécessaires
@@ -246,7 +243,6 @@ function validateConditions(checkbox1) {
 //validation des champs
 function validate() {
     let isFormValid = [];
-    console.log('Enter fonction validate');//vérification de la fonction valider 
     isFormValid.push(validateFirstName(firstName)); //si le champ prénom est valide
     isFormValid.push(validateLastName(lastName)); //si le champ nom est valide 
     isFormValid.push(validateEmail(email)); //si le champ email est valide
