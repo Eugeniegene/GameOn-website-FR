@@ -16,6 +16,7 @@ body
   margin: 0;
   display: flex;
   flex-direction: column;
+  background-image: url("background.png");
   font-family: var(--font-default);
   font-size: 18px;
   max-width: 1300px;
@@ -232,7 +233,7 @@ main
   display:none;
   font-size: 30px;
   margin-bottom: 300px;
-  margin-top: 30px;
+  margin-top: 235px;
   font-weight: 100;
 }
 
@@ -676,7 +677,6 @@ footer
 .submitted-form
 {
   text-align: center;
-  margin-top: 210px;
 }
 /* close button after modal is submitted)*/
 #close-btn
