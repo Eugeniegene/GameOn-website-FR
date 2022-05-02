@@ -612,7 +612,6 @@ footer
   .hero-headline 
   {
     font-size: 59px;
-    max-width: 90%;
     white-space: normal;
   }
   .hero-text
@@ -636,6 +635,13 @@ footer
   {
     margin-top: 50px;
     text-align: center;
+  }
+}
+@media screen and (max-width: 651px) 
+{
+  .hero-headline
+  {
+    font-size: 40px;
   }
 }
 @media screen and (max-width: 400px) 
